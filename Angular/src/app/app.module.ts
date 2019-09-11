@@ -16,7 +16,7 @@ import { ShowDepComponent } from './department/show-dep/show-dep.component';
 import { EditDepComponent } from './department/edit-dep/edit-dep.component';
 import { AddDepComponent } from './department/add-dep/add-dep.component';
 import { DepartmentService } from './services/department.service';
-import { MatButtonModule, MatIconModule, MatTableModule, MatSortModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatTableModule, MatSortModule, MatDialogModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -43,11 +43,13 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     HttpClientModule,
     FormsModule
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents: [AddDepComponent, EditDepComponent]
+  entryComponents: [AddDepComponent, EditDepComponent, AddEmpComponent, EditEmpComponent]
 })
 export class AppModule { }

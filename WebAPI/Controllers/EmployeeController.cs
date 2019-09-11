@@ -37,6 +37,8 @@ namespace WebAPI.Controllers
         {
             try
             {
+                string doj = emp.DOJ.ToString().Split(' ')[0];
+
                 DataTable tabel = new DataTable();
 
                 string query = @"INSERT INTO Employees(

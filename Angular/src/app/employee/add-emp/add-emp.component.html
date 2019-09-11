@@ -1,1 +1,73 @@
-<p>add-emp works!</p>
+<div class="d-flex justify-content-between">
+    <h4>Add New Department</h4>
+
+    <button mat-button (click)="onClose()" ><mat-icon>close</mat-icon></button>
+</div>
+<div style="overflow: auto; height: 450px;">
+    <form #f="ngForm" (submit)="onSubmit(f)" autocomplete="off">
+        <div class="m-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">Employee Name</span>
+            </div>
+            <input 
+            requred 
+            minlenght="2" 
+            type="text" 
+            class="form-control" 
+            name="EmployeeName" 
+            #EmployeeName="ngModel"
+            [(ngModel)]="service.formData.EmployeeName"
+            /> 
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">Department</span>
+            </div>
+            <select 
+            requred 
+            type="text" 
+            class="form-control" 
+            name="Department" 
+            #Department="ngModel"
+            [(ngModel)]="service.formData.Department"
+            >
+            <option *ngFor="let dl of listItems" [value]="dl">{{dl}}</option>
+            </select> 
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">MailID</span>
+            </div>
+            <input 
+            requred 
+            minlenght="2" 
+            type="text" 
+            class="form-control" 
+            name="MailID" 
+            #MailID="ngModel"
+            [(ngModel)]="service.formData.MailID"
+            /> 
+        </div>
+
+        <div class="m-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">DOJ</span>
+            </div>
+            <input 
+            requred 
+            [matDatepicker]="picker"
+            type="text"
+            class="form-control" 
+            name="DOJ" 
+            #DOJ="ngModel"
+            [(ngModel)]="service.formData.DOJ"
+            /> 
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </div>
+
+        <button class="m-3" mat-raised-button color="primary" [disabled]="f.invalid">Add Employee</button>
+    </form>
+</div>
