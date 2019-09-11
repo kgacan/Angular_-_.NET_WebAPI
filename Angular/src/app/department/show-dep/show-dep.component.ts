@@ -3,6 +3,7 @@ import { DepartmentService } from './../../services/department.service';
 import { Department } from './../../model/department-model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
+import { EditDepComponent } from '../edit-dep/edit-dep.component';
 
 @Component({
   selector: 'app-show-dep',
@@ -37,7 +38,13 @@ export class ShowDepComponent implements OnInit {
   })
   }
   onEdit(dep: Department){
-    console.log(dep);
+    this.depService.formData = dep;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    this.dialog.open(EditDepComponent, dialogConfig);
+
   }
   onDelete(id:number){
     if(confirm('Are you sure to delete?')){

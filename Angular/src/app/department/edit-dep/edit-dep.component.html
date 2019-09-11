@@ -1,1 +1,41 @@
-<p>edit-dep works!</p>
+<div class="d-flex justify-content-between m-3">
+    <h4>Edit New Department</h4>
+
+    <button mat-button (click)="onClose()" ><mat-icon>close</mat-icon></button>
+</div>
+<div style="overflow: auto; height: 450px;">
+    <form #f="ngForm" (submit)="onSubmit(f)" autocomplete="off">
+        <div class="mt-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">DepartmentID</span>
+            </div>
+            <input 
+            readonly 
+            type="text" 
+            class="form-control" 
+            name="DepartmentID" 
+            #DepartmentID="ngModel"
+            [(ngModel)]="service.formData.DepartmentID"
+            /> 
+        </div>
+        
+        <div class="mt-3 input-group">
+            <div class="imput-group-prepend">
+                <span class="input-group-text">Department Name</span>
+            </div>
+            <input 
+            requred 
+            minlenght="2" 
+            type="text" 
+            class="form-control" 
+            name="DepartmentName" 
+            #DepartmentName="ngModel"
+            [(ngModel)]="service.formData.DepartmentName"
+            /> 
+        </div>
+        <div class="text-left text-danger" *ngIf="DepartmentName.invalid && DepartmentName.touched">
+            Please enter department name.
+        </div>
+        <button class="mt-3" mat-raised-button color="primary" [disabled]="f.invalid">Update Department</button>
+    </form>
+</div>

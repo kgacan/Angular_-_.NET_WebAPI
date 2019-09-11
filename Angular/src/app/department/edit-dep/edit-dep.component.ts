@@ -1,4 +1,7 @@
+import { DepartmentService } from './../../services/department.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-dep',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditDepComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogbox: MatDialogRef<EditDepComponent>, 
+    public service: DepartmentService,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
+  }
+
+  onClose(){
+    this.dialogbox.close();
+    this.service.filter('Register click');
+
+  }
+  onSubmit(form: NgForm){
+    this.service.updateDepartment(form.value).subscribe(res=>{
+      this.snackBar.open(res.toString(),'',{
+        duration:5000,
+        verticalPosition:'top'
+      })
+    })
   }
 
 }

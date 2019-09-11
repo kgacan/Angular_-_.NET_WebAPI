@@ -26,6 +26,9 @@ export class DepartmentService {
   deleteDepartment(id: number){
     return this.http.delete(this.apiURL+'/department/'+id);
   }
+  updateDepartment(dep: Department){
+    return this.http.put(this.apiURL+'/department', dep);
+  }
 
 
   private _listeners = new Subject<any>();

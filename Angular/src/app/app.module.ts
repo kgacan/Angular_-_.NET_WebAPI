@@ -48,6 +48,6 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [DepartmentService, EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents: [AddDepComponent]
+  entryComponents: [AddDepComponent, EditDepComponent]
 })
 export class AppModule { }
