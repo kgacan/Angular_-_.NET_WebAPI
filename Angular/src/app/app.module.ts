@@ -16,6 +16,9 @@ import { ShowDepComponent } from './department/show-dep/show-dep.component';
 import { EditDepComponent } from './department/edit-dep/edit-dep.component';
 import { AddDepComponent } from './department/add-dep/add-dep.component';
 import { DepartmentService } from './services/department.service';
+import { MatButtonModule, MatIconModule, MatTableModule, MatSortModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,18 @@ import { DepartmentService } from './services/department.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSortModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DepartmentService, EmployeeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddDepComponent]
 })
 export class AppModule { }

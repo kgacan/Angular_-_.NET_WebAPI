@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-department',
@@ -10,8 +9,7 @@ export class DepartmentComponent implements OnInit {
 
   constructor() { }
 
-  listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options', 'DepartmentID', 'DepartmentName'];
+
 
   ngOnInit() {
   }
